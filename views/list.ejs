@@ -9,17 +9,20 @@
 </head>
 
 <body>
-    <%   if(kindOfDay==="Saturday"|| kindOfDay==="Sunday"){ %>
-        <h1 style="color: red;">
-            <%= kindOfDay %> List
-        </h1>
-   <% } else{%> 
-        
-        <h1 style="color: blue;">
-            <%= kindOfDay %> List
-        </h1>
-  <%    }   %>
-    
+   <h1><%=kindOfDay %></h1>
+
+   <ul>
+    <li>Buy Food</li>
+    <li>Cook Food</li>
+    <li>Eat Food</li>
+    <% newItems.forEach(item => { %>
+        <li><%=item %></li>
+    <% }) %>
+   </ul>
+    <form action="/api/v1/createActivity" method="post">
+        <input type="text" id="activity" name="activity" placeholder="Enter your activity">
+        <button type="submit">Submit</button>
+    </form>
     
 </body>
 
