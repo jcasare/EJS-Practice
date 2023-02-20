@@ -4,11 +4,11 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const port = 3000 || process.env.PORT;
-
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.set("view engine", "ejs");
-let items = [];
+let items = ["buy food", "play guitar"];
 app.get("/", (req, res) => {
   const today = new Date();
   const options = { weekday: "long", day: "numeric", month: "long" };
